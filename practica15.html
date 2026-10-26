@@ -1,96 +1,784 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Día de Muertos | Tradición y Cultura</title>
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --naranja: #f28c28;
+            --naranja-claro: #ffb347;
+            --morado: #55216e;
+            --morado-oscuro: #200d2b;
+            --crema: #fff5df;
+            --dorado: #e8c477;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--crema);
+            color: #33243a;
+        }
+
+        /* BARRA SUPERIOR Y PAPEL PICADO */
+
+        .papel-picado {
+            height: 27px;
+            background-color: var(--morado);
+            background-image:
+                radial-gradient(circle at 12px 0,
+                transparent 7px, var(--naranja) 7.5px);
+            background-size: 32px 27px;
+            border-bottom: 4px solid var(--naranja);
+        }
+
+        /* ENCABEZADO */
+
+        header {
+            background: var(--morado-oscuro);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--dorado);
+        }
+
+        .navbar {
+            max-width: 1250px;
+            margin: auto;
+            min-height: 82px;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            color: var(--naranja-claro);
+            font-family: 'Cinzel', serif;
+            font-size: 19px;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            display: block;
+            color: var(--crema);
+            font-family: 'Poppins', sans-serif;
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        nav a {
+            color: var(--crema);
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 10px 12px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--morado-oscuro);
+            background: var(--naranja-claro);
+        }
+
+        /* PORTADA PRINCIPAL */
+
+        .hero {
+            min-height: 610px;
+            padding: 80px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(ellipse at center,
+                rgba(103, 47, 120, 0.82),
+                rgba(32, 13, 43, 0.98) 75%);
+            border-bottom: 7px solid var(--naranja);
+        }
+
+        /* Flores decorativas */
+
+        .hero::before,
+        .hero::after {
+            content: "✿";
+            position: absolute;
+            color: var(--naranja);
+            opacity: 0.17;
+            font-size: 230px;
+            pointer-events: none;
+        }
+
+        .hero::before {
+            top: 20px;
+            left: -60px;
+        }
+
+        .hero::after {
+            bottom: -60px;
+            right: -40px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 850px;
+        }
+
+        .etiqueta {
+            display: inline-block;
+            border: 1px solid var(--dorado);
+            border-radius: 30px;
+            padding: 9px 22px;
+            color: var(--dorado);
+            letter-spacing: 3px;
+            font-size: 10px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .adorno {
+            color: var(--naranja-claro);
+            font-size: 29px;
+            letter-spacing: 9px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--crema);
+            font-size: clamp(40px, 7vw, 78px);
+            line-height: 1.2;
+            font-weight: 700;
+            text-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 span {
+            display: block;
+            color: var(--naranja-claro);
+        }
+
+        .linea {
+            width: 100px;
+            height: 3px;
+            margin: 27px auto;
+            background: var(--dorado);
+        }
+
+        .subtitulo {
+            color: var(--crema);
+            font-size: 16px;
+            line-height: 1.9;
+            max-width: 650px;
+            margin: 0 auto 32px;
+            font-weight: 300;
+        }
+
+        .boton {
+            display: inline-block;
+            background: var(--naranja);
+            color: var(--morado-oscuro);
+            text-decoration: none;
+            padding: 15px 29px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .boton:hover {
+            background: var(--dorado);
+            transform: translateY(-3px);
+        }
+
+        .flores {
+            margin-top: 40px;
+            color: var(--naranja-claro);
+            font-size: 24px;
+            letter-spacing: 12px;
+        }
+
+        /* SECCIONES */
+
+        section.contenido {
+            max-width: 1050px;
+            margin: auto;
+            padding: 80px 7%;
+            scroll-margin-top: 100px;
+        }
+
+        .contenido h2 {
+            color: var(--morado);
+            font-family: 'Cinzel', serif;
+            font-size: 29px;
+            margin-bottom: 20px;
+        }
+
+        .contenido p {
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .contenido p + p {
+            margin-top: 15px;
+        }
+
+        .contenido:nth-of-type(even) {
+            background: #f7e9d5;
+        }
+
+        .contenido + .contenido {
+            border-top: 1px solid rgba(85, 33, 110, 0.08);
+        }
+
+        /* CONTENIDO MULTIMEDIA */
+
+        .contenido h3 {
+            color: var(--naranja);
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            margin: 28px 0 10px;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+            margin-top: 28px;
+        }
+
+        .tarjeta {
+            margin: 0;
+            background: #fffaf0;
+            border: 1px solid rgba(85, 33, 110, 0.15);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(32, 13, 43, 0.12);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 13px 30px rgba(32, 13, 43, 0.18);
+        }
+
+        .tarjeta img {
+            display: block;
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .tarjeta figcaption {
+            padding: 14px 14px 16px;
+            color: var(--morado);
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .tarjeta figcaption span {
+            display: block;
+            margin-top: 5px;
+            color: #6d5a73;
+            font-size: 11px;
+            font-weight: 400;
+        }
+
+        .imagen-destacada {
+            max-width: 700px;
+            margin: 28px auto 0;
+        }
+
+        .imagen-destacada img {
+            height: 420px;
+        }
+
+        .lista-tradicion {
+            margin: 16px 0 0 20px;
+        }
+
+        .lista-tradicion li {
+            font-size: 14px;
+            line-height: 1.9;
+            margin-bottom: 9px;
+        }
+
+        .lista-tradicion strong {
+            color: var(--morado);
+        }
+
+        /* PIE DE PÁGINA */
+
+        footer {
+            background: var(--morado-oscuro);
+            color: var(--crema);
+            text-align: center;
+            padding: 28px 15px;
+            border-top: 4px solid var(--naranja);
+            font-size: 12px;
+            line-height: 2;
+        }
+
+        footer span {
+            color: var(--naranja-claro);
+        }
+
+        /* DISEÑO PARA CELULARES */
+
+        @media (max-width: 900px) {
+            .navbar {
+                flex-direction: column;
+                padding: 17px 12px;
+                gap: 13px;
+            }
+
+            nav {
+                gap: 4px;
+            }
+
+            nav a {
+                font-size: 10px;
+                padding: 8px;
+            }
+
+            .hero {
+                min-height: 550px;
+                padding: 65px 6%;
+            }
+
+            .subtitulo {
+                font-size: 14px;
+            }
+
+            .tarjeta img {
+                height: 210px;
+            }
+
+            .imagen-destacada img {
+                height: 340px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 17px;
+            }
+
+            nav a {
+                font-size: 9px;
+                padding: 7px 8px;
+            }
+
+            .hero {
+                min-height: 520px;
+            }
+
+            .etiqueta {
+                font-size: 9px;
+                letter-spacing: 2px;
+                padding: 8px 14px;
+            }
+
+            .contenido {
+                padding: 60px 6%;
+            }
+
+            .contenido h2 {
+                font-size: 24px;
+            }
+
+            .galeria {
+                grid-template-columns: 1fr;
+            }
+
+            .tarjeta img {
+                height: 220px;
+            }
+
+            .imagen-destacada img {
+                height: 280px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<h1>Dia de Muertos</h1>
+    <!-- DECORACIÓN DE PAPEL PICADO -->
+    <div class="papel-picado"></div>
 
-<p>
-    ¿Qué es el Día de Muertos? <br>
-El Día de Muertos es una festividad mexicana en la que se honra a los seres queridos fallecidos. <br>
- Se cree que los espíritus de los difuntos regresan al mundo de los vivos durante los días 1 y 2 de noviembre de cada año. <br>
- <br>
-Es una celebración que combina elementos de las tradiciones indígenas mesoamericanas con prácticas y creencias católicas <br>. 
-Se trata de una conmemoración alegre, que festeja la continuidad de la vida a través de rituales y ofrendas. En ella,  <br>
-se crean altares coloridos, adornados con fotos, flores, velas y aquellos alimentos que eran apreciados por los difuntos. <br>
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <header>
+        <div class="navbar">
+            <a href="#inicio" class="logo">
+                DÍA DE MUERTOS
+                <span>TRADICIÓN MEXICANA</span>
+            </a>
 
-Las fechas coinciden con las fiestas católicas del Día de Todos los Santos y el Día de los Fieles Difuntos. <br> 
-Si bien los días precisos son el 1 y 2 de noviembre, las celebraciones del Día de Muertos pueden durar hasta una semana. <br>
- <br>
-La riqueza cultural de esta tradición es tal que la Unesco la inscribió en la Lista Representativa del Patrimonio Cultural  <br>
-Inmaterial de la Humanidad en 2008. Es una de las tradiciones más famosas y visitadas de México, y ha inspirado numerosas  <br>
-obras documentales y de ficción. <br>
-</p>
+            <nav>
+                <a href="#inicio">Inicio</a>
+                <a href="#que-es">¿Qué es?</a>
+                <a href="#ofrenda">La ofrenda</a>
+                <a href="#simbolos">Símbolos y gastronomía</a>
+                <a href="#historia">Historia</a>
+                <a href="#catrina">La Catrina</a>
+            </nav>
+        </div>
+    </header>
 
-<center>
-    <h1>elementos de la ofrenda</h1>
-    <img src = "As-Mexico.jpg" alt = "ofrenda" width = "500" height = "300"> 
-    <h2>veladoras
-    </h2>   
-    <img src = "veladora.jpg" alt = "veladora" width = "500" height = "300">
+    <main>
+        <!-- PORTADA -->
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <div class="adorno">✿ ❋ ✿</div>
 
-    <h2>calaveritas de azucar</h2>
-    <img src = "calaveritas.jpg" alt = "calaverita" width = "500" height = "300">
-    <h2>flores de cempasuchil</h2>
-    <img src = "ki.jpg" alt = "cempasuchil" width = "500" height = "300">
-    <h2>pan de muerto</h2>   
-    <img src = "pam.jpeg" alt = "pan de muerto" width = "500" height = "300">
-    <h2>frutas</h2>
-    <img src = "futas.jpg" alt = "frutas y dulces" width = "500" height = "300">
-    <h2>papel picado</h2>
-   <img src = "papel.jpg" alt = "papel picado" width = "500" height = "300">
-    <h2>simbologia</h2>
-    <img src = "p.jpg" alt = "simbologia" width = "500" height = "300">
+                <div class="etiqueta">
+                    CULTURA · MEMORIA · TRADICIÓN
+                </div>
 
+                <h1>
+                    DÍA DE
+                    <span>MUERTOS</span>
+                </h1>
 
-</center>
-<center>
+                <div class="linea"></div>
 
-<h1>HISTORIA Y ORIGEN</h1>
-<P>
-    El Día de Muertos es una festividad que surge del sincretismo entre rituales prehispánicos de México y celebraciones católicas  <br>
-    europeas, consolidándose como una tradición cultural única. <br>
-Raíces prehispánicas <br>
-Antes de la llegada de los españoles, las culturas indígenas de México, como los aztecas, mayas y purépechas, realizaban rituales <br>
- para honrar a los muertos, aunque en fechas distintas a las actuales. La muerte se concebía como parte natural del ciclo de la vida <br>
- y existía la creencia en un mundo espiritual donde los difuntos continuaban su existencia <br>
-Estas prácticas incluían ofrendas de alimentos, flores y objetos significativos para los difuntos, así como ceremonias comunitarias  <br>
-que reforzaban la conexión entre vivos y muertos. <br>
-ORIGEN DEL DÍA DE MUERTOS <br>
-CULTO A LA MUERTE: Civilizaciones como los mexicas, mayas, y purépechas tenían un profundo respeto por la muerte, considerándola una <br>
- transición hacia otra forma de existencia. <br>
-RITUALES Y OFRENDAS: Se realizaban ceremonias y se colocaban ofrendas con alimentos, flores y objetos personales para honrar a los <br>
- difuntos. <br>
-INFLUENCIA ESPAÑOLA: Con la llegada de los españoles y la evangelización, se introdujeron festividades católicas como el Día de Todos <br>
- los Santos y el Día de los Fieles Difuntos, que se celebraban el 1 y 2 de noviembre. <br>
-SINCRETISMO CULTURAL: La combinación de las tradiciones indígenas y las festividades católicas dio lugar al Día de Muertos tal como se <br>
- conoce hoy, con altares, ofrendas y celebraciones que honran a los seres queridos fallecidos. <br>
- ORIGEN CATOLICO: La Iglesia Católica incorporó estas festividades en su calendario litúrgico, adaptando las prácticas indígenas a sus <br>
-  propias creencias y rituales. <br>
-  SINTASIS: El Día de Muertos es el resultado de la fusión entre las tradiciones prehispánicas y las festividades católicas, creando una <br>
-   celebración única que honra a los difuntos y celebra la continuidad de la vida. <br>
+                <p class="subtitulo">
+                    Una tradición que florece entre colores, aromas y recuerdos.
+                    Descubre la riqueza cultural de México y la belleza de una
+                    celebración que mantiene viva la memoria de quienes forman
+                    parte de nuestra historia.
+                </p>
 
-</P>
+                <a href="#que-es" class="boton">
+                    DESCUBRIR LA TRADICIÓN →
+                </a>
 
-<h2>aqui puedes observar diferentes calaveritas literarias</h2>
+                <div class="flores">
+                    ✿ ❋ ✿ ❋ ✿
+                </div>
+            </div>
+        </section>
 
+        <!-- ¿QUÉ ES? -->
+        <section class="contenido" id="que-es">
+            <h2>¿Qué es el Día de Muertos?</h2>
 
-<img src="87a14e472db67b90d6d64b17dadd2f28.jpg" alt="No se pudo cargar la imagen" width="400px" height="400px">
-<br><br><br><br><br>
-<img src="calaverita-muerte-embarazada.jpg" alt="No se pudo cargar la imagen" width="400px" height="400px">
-<br><br><br><br><br>
-<img src="e59653b7f8fa19442e8f7b3a9f41c007.jpg" alt="No se pudo cargar la imagen" width="400px" height="400px">
-<br><br><br><br><br>
-<h2>LA CATRINA 
-</h2>
-<img src="la-catrina-historia-y-origen_0_0_1200_747.jpg" alt="No se pudo cargar la imagen" width="400px" height="400px">
-<br><br><br><br><br>
+            <p>
+                El Día de Muertos es una festividad mexicana en la que se honra
+                a los seres queridos fallecidos. Se cree que los espíritus de
+                los difuntos regresan al mundo de los vivos durante los días
+                1 y 2 de noviembre de cada año.
+            </p>
 
+            <p>
+                Es una celebración que combina elementos de las tradiciones
+                indígenas mesoamericanas con prácticas y creencias católicas.
+                Se trata de una conmemoración alegre, que festeja la continuidad
+                de la vida a través de rituales y ofrendas. En ella se crean
+                altares coloridos, adornados con fotos, flores, velas y aquellos
+                alimentos que eran apreciados por los difuntos.
+            </p>
 
-    </center>
+            <p>
+                Las fechas coinciden con las fiestas católicas del Día de Todos
+                los Santos y el Día de los Fieles Difuntos. Si bien los días
+                precisos son el 1 y 2 de noviembre, las celebraciones del Día de
+                Muertos pueden durar hasta una semana.
+            </p>
+
+            <p>
+                La riqueza cultural de esta tradición es tal que la UNESCO la
+                inscribió en la Lista Representativa del Patrimonio Cultural
+                Inmaterial de la Humanidad en 2008. Es una de las tradiciones
+                más famosas y visitadas de México, y ha inspirado numerosas
+                obras documentales y de ficción.
+            </p>
+        </section>
+
+        <!-- LA OFRENDA -->
+        <section class="contenido" id="ofrenda">
+            <h2>La ofrenda y sus elementos</h2>
+
+            <p>
+                Las ofrendas reúnen elementos como fotografías, veladoras,
+                agua, flores de cempasúchil y alimentos. Cada uno tiene un
+                significado dentro de esta tradición.
+            </p>
+
+            <p>
+                A continuación puedes observar algunos de los elementos más
+                representativos de una ofrenda de Día de Muertos.
+            </p>
+
+            <div class="galeria">
+                <figure class="tarjeta">
+                    <img src="As-Mexico.jpg" alt="Ofrenda tradicional de Día de Muertos" loading="lazy">
+                    <figcaption>
+                        Ofrenda completa
+                        <span>Fotografías, flores, velas y alimentos</span>
+                    </figcaption>
+                </figure>
+
+                <figure class="tarjeta">
+                    <img src="veladora.jpg" alt="Veladoras en la ofrenda" loading="lazy">
+                    <figcaption>
+                        Veladoras
+                        <span>Luz y guía para las almas</span>
+                    </figcaption>
+                </figure>
+
+                <figure class="tarjeta">
+                    <img src="calaveritas.jpg" alt="Calaveritas de azúcar" loading="lazy">
+                    <figcaption>
+                        Calaveritas de azúcar
+                        <span>Representación simbólica de la muerte</span>
+                    </figcaption>
+                </figure>
+
+                <figure class="tarjeta">
+                    <img src="ki.jpg" alt="Flores de cempasúchil" loading="lazy">
+                    <figcaption>
+                        Flores de cempasúchil
+                        <span>Color y aroma que guían a los difuntos</span>
+                    </figcaption>
+                </figure>
+
+                <figure class="tarjeta">
+                    <img src="pam.jpeg" alt="Pan de muerto" loading="lazy">
+                    <figcaption>
+                        Pan de muerto
+                        <span>Alimento tradicional de la temporada</span>
+                    </figcaption>
+                </figure>
+
+                <figure class="tarjeta">
+                    <img src="futas.jpg" alt="Frutas y dulces en la ofrenda" loading="lazy">
+                    <figcaption>
+                        Frutas y dulces
+                        <span>Alimentos dispuestos para los difuntos</span>
+                    </figcaption>
+                </figure>
+
+                <figure class="tarjeta">
+                    <img src="papel.jpg" alt="Papel picado" loading="lazy">
+                    <figcaption>
+                        Papel picado
+                        <span>Decoración tradicional con símbolos</span>
+                    </figcaption>
+                </figure>
+
+                <figure class="tarjeta">
+                    <img src="p.jpg" alt="Simbología de la ofrenda" loading="lazy">
+                    <figcaption>
+                        Simbología
+                        <span>Significado de los elementos de la ofrenda</span>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- SÍMBOLOS Y GASTRONOMÍA -->
+        <section class="contenido" id="simbolos">
+            <h2>Símbolos y gastronomía</h2>
+
+            <p>
+                El cempasúchil, el papel picado, las calaveritas de azúcar y
+                el pan de muerto son algunos de los elementos representativos
+                de esta celebración.
+            </p>
+
+            <p>
+                Cada símbolo posee un significado especial: el cempasúchil guía
+                a las almas con su aroma y color; el papel picado representa el
+                viento y la fragilidad de la vida; las calaveritas recuerdan la
+                presencia de la muerte desde una mirada humorística; y el pan de
+                muerto forma parte de la ofrenda y de la convivencia familiar.
+            </p>
+
+            <h3>Gastronomía tradicional</h3>
+
+            <p>
+                Durante esta celebración también se preparan platillos como el
+                pan de muerto, calaveritas de azúcar, frutas de temporada,
+                dulces tradicionales y algunos de los alimentos favoritos de
+                los difuntos, colocados como parte de la ofrenda.
+            </p>
+        </section>
+
+        <!-- HISTORIA Y ORIGEN -->
+        <section class="contenido" id="historia">
+            <h2>Historia y origen</h2>
+
+            <p>
+                El Día de Muertos es una festividad que surge del sincretismo
+                entre rituales prehispánicos de México y celebraciones católicas
+                europeas, consolidándose como una tradición cultural única.
+            </p>
+
+            <h3>Raíces prehispánicas</h3>
+
+            <p>
+                Antes de la llegada de los españoles, las culturas indígenas de
+                México, como los aztecas, mayas y purépechas, realizaban rituales
+                para honrar a los muertos, aunque en fechas distintas a las
+                actuales. La muerte se concebía como parte natural del ciclo de
+                la vida y existía la creencia en un mundo espiritual donde los
+                difuntos continuaban su existencia.
+            </p>
+
+            <p>
+                Estas prácticas incluían ofrendas de alimentos, flores y objetos
+                significativos para los difuntos, así como ceremonias comunitarias
+                que reforzaban la conexión entre vivos y muertos.
+            </p>
+
+            <h3>Origen del Día de Muertos</h3>
+
+            <ul class="lista-tradicion">
+                <li>
+                    <strong>Culto a la muerte:</strong> Civilizaciones como los
+                    mexicas, mayas y purépechas tenían un profundo respeto por
+                    la muerte, considerándola una transición hacia otra forma
+                    de existencia.
+                </li>
+                <li>
+                    <strong>Rituales y ofrendas:</strong> Se realizaban ceremonias
+                    y se colocaban ofrendas con alimentos, flores y objetos
+                    personales para honrar a los difuntos.
+                </li>
+                <li>
+                    <strong>Influencia española:</strong> Con la llegada de los
+                    españoles y la evangelización, se introdujeron festividades
+                    católicas como el Día de Todos los Santos y el Día de los
+                    Fieles Difuntos, que se celebraban el 1 y 2 de noviembre.
+                </li>
+                <li>
+                    <strong>Sincretismo cultural:</strong> La combinación de las
+                    tradiciones indígenas y las festividades católicas dio lugar
+                    al Día de Muertos tal como se conoce hoy, con altares,
+                    ofrendas y celebraciones que honran a los seres queridos
+                    fallecidos.
+                </li>
+                <li>
+                    <strong>Origen católico:</strong> La Iglesia Católica incorporó
+                    estas festividades en su calendario litúrgico, adaptando las
+                    prácticas indígenas a sus propias creencias y rituales.
+                </li>
+                <li>
+                    <strong>Síntesis:</strong> El Día de Muertos es el resultado
+                    de la fusión entre las tradiciones prehispánicas y las
+                    festividades católicas, creando una celebración única que
+                    honra a los difuntos y celebra la continuidad de la vida.
+                </li>
+            </ul>
+        </section>
+
+        <!-- CALAVERITAS Y CATRINA -->
+        <section class="contenido" id="catrina">
+            <h2>Calaveritas literarias y La Catrina</h2>
+
+            <p>
+                Las calaveritas literarias son composiciones ingeniosas que
+                suelen usar rimas y humor. La Catrina se convirtió en uno de
+                los símbolos más reconocidos de la cultura mexicana.
+            </p>
+
+            <h3>Galería de calaveritas literarias</h3>
+
+            <p>
+                Aquí puedes observar diferentes ejemplos de calaveritas
+                literarias.
+            </p>
+
+            <div class="galeria">
+                <figure class="tarjeta">
+                    <img src="87a14e472db67b90d6d64b17dadd2f28.jpg"
+                         alt="Calaverita literaria ilustrada" loading="lazy">
+                    <figcaption>
+                        Calaverita literaria
+                        <span>Ejemplo ilustrado</span>
+                    </figcaption>
+                </figure>
+
+                <figure class="tarjeta">
+                    <img src="calaverita-muerte-embarazada.jpg"
+                         alt="Calaverita literaria de la muerte embarazada" loading="lazy">
+                    <figcaption>
+                        Calaverita literaria
+                        <span>Humor y tradición</span>
+                    </figcaption>
+                </figure>
+
+                <figure class="tarjeta">
+                    <img src="e59653b7f8fa19442e8f7b3a9f41c007.jpg"
+                         alt="Calaverita literaria con ilustración tradicional" loading="lazy">
+                    <figcaption>
+                        Calaverita literaria
+                        <span>Arte y rima popular</span>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <h3>La Catrina</h3>
+
+            <p>
+                La Catrina es una de las representaciones más conocidas de la
+                muerte en la cultura mexicana. Su imagen, elegante y adornada,
+                se ha convertido en un símbolo inseparable de las celebraciones
+                del Día de Muertos.
+            </p>
+
+            <figure class="tarjeta imagen-destacada">
+                <img src="la-catrina-historia-y-origen_0_0_1200_747.jpg"
+                     alt="La Catrina, símbolo del Día de Muertos" loading="lazy">
+                <figcaption>
+                    La Catrina
+                    <span>Símbolo reconocido de la cultura mexicana</span>
+                </figcaption>
+            </figure>
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>✿ <span>Tradición que vive en nuestros recuerdos</span> ✿</p>
+        <p>Proyecto educativo | Cultura mexicana</p>
+    </footer>
+
 </body>
 </html>
